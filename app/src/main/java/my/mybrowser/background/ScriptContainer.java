@@ -108,8 +108,8 @@ public class ScriptContainer implements JsObjectInterface
         Log.v(tag, "Will lock");
         lock.lock();
         Log.v(tag, "Did lock, will evaluate");
-        webView.evaluateJavascript(js, shouldBlockResult);
-//        handler.post(shouldBlockResultTask); // this works
+//new        webView.evaluateJavascript(js, shouldBlockResult);
+        handler.post(shouldBlockResultTask); // this works
         Log.v(tag, "Did evaluate, will unlock");
         lock.unlock();
         Log.v(tag, "Did unlock, will finish");

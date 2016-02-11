@@ -24,6 +24,7 @@ import java.io.UnsupportedEncodingException;
 import my.mybrowser.background.ResourceObjectsProvider;
 import my.mybrowser.background.ScriptContainer;
 import my.mybrowser.databinding.ActivityMainBinding;
+import my.mybrowser.response.FutureResponse;
 import my.mybrowser.webview.MyWebChromeClient;
 import my.mybrowser.webview.MyWebViewClient;
 import my.mybrowser.webview.WebViewEventsHandler;
@@ -55,8 +56,9 @@ public class ActivityMain extends AppCompatActivity implements WebViewEventsHand
   {
     if (background.shouldBlock(request)) {
       return new WebResourceResponse(null, null, 403, "Cancelled", null, null);
+    } else {
+      return new FutureResponse(request.getUrl());
     }
-    return null;
   }
 
   // ResourceObjectsProvider
